@@ -19,11 +19,12 @@
 
 
             <TextView
-                android:id="@+id/time"
+                android:id="@+id/timer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="00:00:00"
                 android:textSize="50dp" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -38,6 +39,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="97dp"
                 android:layout_weight="1"
+                android:onClick="StartClick"
                 android:text="Start" />
 
             <Button
@@ -45,6 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="98dp"
                 android:layout_weight="1"
+                android:onClick="StopClick"
                 android:text="Stop" />
 
             <Button
@@ -52,6 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="98dp"
                 android:layout_weight="1"
+                android:onClick="ResetClick"
                 android:text="Reset" />
         </LinearLayout>
 
@@ -60,6 +64,15 @@
             android:layout_height="150dp"
             android:layout_weight="1"
             android:orientation="vertical">
+
+            <AnalogClock
+                android:id="@+id/analogClock"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/digitalClock"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="35dp" />
+
 
 
         </LinearLayout>
