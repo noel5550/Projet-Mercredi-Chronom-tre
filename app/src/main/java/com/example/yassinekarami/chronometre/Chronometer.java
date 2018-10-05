@@ -4,8 +4,8 @@ import android.content.Context;
 
 public class Chronometer implements  Runnable{
 
-    public static  final long MILLIS_TO_MINUTES = 6000;
-    public static  final long MILLIS_TO_HOURS = 360;
+    public static  final long MILLIS_TO_MINUTES = 60000;
+    public static  final long MILLIS_TO_HOURS = 3600;
 
     private Context mainContext;
     private long mainStartTime;
@@ -21,13 +21,20 @@ public class Chronometer implements  Runnable{
     public void Start()
     {
         mainStartTime = System.currentTimeMillis(); // Returns the current time in milliseconds.
-
         isRunning = true;
     }
 
     public void Reset()
     {
-        isRunning = false;
+        ((MainActivity)mainContext).updateTimerText(String.format(
+                "%02d:%02d:%02d", 0, 0 , 0
+        ));
+
+        try {
+            Thread.sleep(10);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public void Stop()
@@ -35,16 +42,23 @@ public class Chronometer implements  Runnable{
         isRunning = false;
     }
 
+    public void Resume()
+    {
+        isRunning = true;
+    }
+
     @Override
     public void run() {
 
         while(isRunning)
         {
-            long since = System.currentTimeMillis() - mainStartTime;
-
+            long since = System.currentTimeMillis() - mainStartTime; // recupere le temps
             int seconds = (int)(since / 1000) % 60;
-            int minutes =(int)(since / MILLIS_TO_MINUTES) % 60;
-            int hours = (int) (since / MILLIS_TO_HOURS) % 24 ;
+            int minutes =(int)((since / MILLIS_TO_MINUTES) % 60);  // 1 minute = 60 000 ms  / MILLIS_TO_MINUTES = 60000
+
+            // TODO : revoir les heures
+            int hours = 0;
+            // int hours = (int) (since / MILLIS_TO_HOURS) % 24 ;
 
             ((MainActivity)mainContext).updateTimerText(String.format(
                     "%02d:%02d:%02d", hours, minutes, seconds

@@ -40,17 +40,32 @@ public class MainActivity extends AppCompatActivity {
             threadChrono.start();
             chronometer.Start();
         }
+        else
+        {
+            chronometer.Resume();
+        }
 
     }
 
     public void ResetClick(View view)
     {
-
+        if (chronometer != null )
+        {
+            chronometer.Reset();
+            threadChrono.interrupt();
+            threadChrono = null;
+            chronometer = null;
+            btn_start.setText("Start");
+        }
     }
 
     public void StopClick(View view)
     {
-
+        if (chronometer != null)
+        {
+            chronometer.Stop();
+            btn_start.setText("Resume");
+        }
     }
 
     public void updateTimerText(final String time)
