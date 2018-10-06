@@ -8,4 +8,17 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="button">
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">#939494</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorwhite</item>
+    </style>
+
+
+    <style name="startButton" parent="button">
+        <item name="android:background">#00C1FF</item>
+
+    </style>
+
 </resources>
