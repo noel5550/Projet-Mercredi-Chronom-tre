@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,14 +21,14 @@
             android:orientation="vertical">
 
 
-            <TextView
-                android:id="@+id/timer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="00:00:00"
-                android:textColor="#00DC5A"
-                android:textSize="70dp" />
+            <Chronometer
+                android:id="@+id/chrono"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="50dp"
+                android:textColor ="@color/colorChrono"
+                android:gravity="center"/>
+
 
         </LinearLayout>
 
@@ -60,6 +61,15 @@
                     android:layout_weight="1"
                     android:onClick="StopClick"
                     android:text="Stop" />
+
+                <Button
+                    android:id="@+id/btn_reset"
+                    style="@style/button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="ResetClick"
+                    android:text="Reset" />
 
                 <Button
                     android:id="@+id/btn_laps"
