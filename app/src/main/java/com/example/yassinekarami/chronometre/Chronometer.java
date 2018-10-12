@@ -42,10 +42,7 @@ public class Chronometer implements  Runnable{
         isRunning = false;
     }
 
-    public void Resume()
-    {
-        isRunning = true;
-    }
+
 
     @Override
     public void run() {
@@ -59,9 +56,10 @@ public class Chronometer implements  Runnable{
             // TODO : revoir les heures
             int hours = 0;
             // int hours = (int) (since / MILLIS_TO_HOURS) % 24 ;
+            int milis = (int)(since % 1000);
 
             ((MainActivity)mainContext).updateTimerText(String.format(
-                    "%02d:%02d:%02d", hours, minutes, seconds
+                    "%02d:%02d:%02d", minutes, seconds , milis
             ));
 
             try {

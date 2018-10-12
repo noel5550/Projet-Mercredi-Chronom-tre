@@ -5,14 +5,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Button;
-
+import android.widget.ScrollView;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView timer;
-    Button btn_start;
-    Button btn_reset;
-    Button btn_stop;
+    private TextView timer;
+    private Button btn_start;
+    //private Button btn_reset;
+    private Button btn_laps;
+    private ScrollView scroll;
+
+    private int lap;
+    private TextView textLaps;
+
 
 
     private Chronometer chronometer;
@@ -25,11 +30,31 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         timer = (TextView)findViewById(R.id.timer);
-        btn_reset = (Button)findViewById(R.id.btn_reset);
+       // btn_reset = (Button)findViewById(R.id.btn_reset);
         btn_start = (Button)findViewById(R.id.btn_start);
-        btn_stop = (Button)findViewById(R.id.btn_stop);
+        btn_laps = (Button)findViewById(R.id.btn_laps);
+        textLaps = (TextView)findViewById(R.id.laps_text);
+        scroll = (ScrollView)findViewById(R.id.scroll);
+
+        textLaps.setEnabled(false);
+
     }
 
+    public void LapsClick(View view)
+    {
+        if (chronometer != null)
+        {
+            textLaps.append("Laps " + String.valueOf(lap)+" : " +String.valueOf(timer.getText()) +" \n");
+            lap ++ ;
+            scroll.post(new Runnable() {
+                @Override
+                public void run() {
+                    scroll.scrollTo(0,scroll.getBottom());
+                }
+            });
+        }
+
+    }
 
     public void StartClick(View view)
     {
@@ -39,12 +64,11 @@ public class MainActivity extends AppCompatActivity {
             threadChrono = new Thread(chronometer);
             threadChrono.start();
             chronometer.Start();
-        }
-        else
-        {
-            chronometer.Resume();
-        }
 
+            lap = 1;
+            textLaps.setText("");
+
+        }
     }
 
     public void ResetClick(View view)
@@ -57,16 +81,19 @@ public class MainActivity extends AppCompatActivity {
             chronometer = null;
             btn_start.setText("Start");
         }
+
+
     }
+
 
     public void StopClick(View view)
     {
         if (chronometer != null)
         {
             chronometer.Stop();
-            btn_start.setText("Resume");
         }
     }
+
 
     public void updateTimerText(final String time)
     {

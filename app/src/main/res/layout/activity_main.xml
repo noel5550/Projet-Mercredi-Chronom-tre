@@ -15,7 +15,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="176dp"
+            android:layout_height="57dp"
+            android:layout_weight="1"
             android:orientation="vertical">
 
 
@@ -25,60 +26,83 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="00:00:00"
-                android:textSize="100dp"
-                android:textColor="#00DC5A"/>
+                android:textColor="#00DC5A"
+                android:textSize="70dp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.4"
-            android:orientation="horizontal">
+            android:layout_height="15dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-
-            <Button
-                android:id="@+id/btn_start"
-                style="@style/startButton"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:onClick="StartClick"
-                android:text="Start" />
+                android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/btn_stop"
-                style="@style/button"
-                android:layout_width="match_parent"
-                android:layout_weight="1"
-                android:onClick="StopClick"
-                android:text="Stop" />
 
-            <Button
-                android:id="@+id/btn_reset"
-                style="@style/button"
-                android:layout_width="match_parent"
-                android:layout_weight="1"
-                android:onClick="ResetClick"
-                android:text="Reset" />
+                <Button
+                    android:id="@+id/btn_start"
+                    style="@style/startButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="StartClick"
+                    android:text="Start" />
+
+                <Button
+                    android:id="@+id/btn_stop"
+                    style="@style/button"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="StopClick"
+                    android:text="Stop" />
+
+                <Button
+                    android:id="@+id/btn_laps"
+                    style="@style/button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="LapsClick"
+                    android:text="Laps" />
+
+
+            </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="25dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+
+            <ScrollView
+                android:id="@+id/scroll"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/laps_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="" />
+            </ScrollView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <AnalogClock
-                android:id="@+id/analogClock"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@+id/digitalClock"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="15dp"
-                android:layout_gravity="center"/>
-
-
+                android:layout_height="match_parent" />
 
         </LinearLayout>
     </LinearLayout>
