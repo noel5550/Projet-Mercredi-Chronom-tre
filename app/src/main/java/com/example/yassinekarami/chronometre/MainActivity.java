@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
         btn_reset.setVisibility(View.GONE);
         btn_stop.setVisibility(View.VISIBLE);
-
+        btn_start.setEnabled(false);
 
     }
 
@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
         chronometer.stop();
         btn_reset.setVisibility(View.VISIBLE);
         btn_stop.setVisibility(View.GONE);
+        btn_start.setEnabled(true);
     }
 
     public void ResetClick(View view)
@@ -83,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
         textLaps.setText("\n");
         chronometer.setBase(SystemClock.elapsedRealtime());
         stop = 0;
+        btn_start.setEnabled(true);
     }
 
 
