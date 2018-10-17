@@ -16,19 +16,13 @@ public class MainActivity extends AppCompatActivity {
     private Button btn_reset;
     private Button btn_laps;
 
-
     private ScrollView scroll;
+    private TextView textLaps;
 
     private int lap;
-    private TextView textLaps;
     private long stop;
 
-
-
     private Chronometer chronometer;
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,7 +74,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void ResetClick(View view)
     {
-
         textLaps.setText("\n");
         chronometer.setBase(SystemClock.elapsedRealtime());
         stop = 0;

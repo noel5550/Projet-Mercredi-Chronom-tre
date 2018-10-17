@@ -25,9 +25,9 @@
                 android:id="@+id/chrono"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textSize="50dp"
-                android:textColor ="@color/colorChrono"
-                android:gravity="center"/>
+                android:gravity="center"
+                android:textColor="@color/colorChrono"
+                android:textSize="50dp" />
 
 
         </LinearLayout>
@@ -103,6 +103,7 @@
                     android:layout_height="match_parent" />
             </ScrollView>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="170dp"
